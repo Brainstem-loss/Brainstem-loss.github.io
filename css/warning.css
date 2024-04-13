@@ -348,6 +348,7 @@ body {
 	background-image: var(--gradient);
 	border-radius: 25px;
 	opacity: 0.8;
+	cursor: pointer;
 }
 
 .date-container {
