@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- <link rel="stylesheet" href="./css/button.css"> -->
+    <script src="./js/jQuery.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        $(function () {
+            $('.myscroll').myScroll({
+                speed: 60, 
+                rowHeight: 38 
+            });
+        })
+
+        $(document).ready(function () {
+            var whei = $(window).width()
+            $("html").css({
+                fontSize: whei / 22
+            });
+            $(window).resize(function () {
+                var whei = $(window).width();
+                $("html").css({
+                    fontSize: whei / 22
+                })
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="header-left" id="time"></div>
+        <div class="header-centre">
+            <h1>天气眼</h1>
+        </div>
+        <div class="header-right">
+            <div class="navbar">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <ul>
+                    <li><a href="warning.html">预警页面</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="./js/time.js"></script>
+    <div class="right">
+        <div class="right-top">
+            <div class="look-up">
+                <input id="city" />
+                <button>搜索城市</button>
+            </div>
+            <div class="weather-finaddbox">
+                <div class="weather1">
+                    <div class="weather-site">
+                        <span><i class="iconfont icon-didian01"></i></span>
+                        <span class="weather-cityname">上海市</span>
+                        <span class="weather-today"> 今日天气</span>
+                    </div>
+                    <div class="weather-bigtemp">
+                        <span id="weather-temp"></span><span>℃</span>
+                        <span id="weather-weather"></span>
+                    </div>
+                    <div class="weather-temp">
+                        <span>↑</span><span id="weather-maxtemp"></span><span>℃</span>
+                        <span>↓</span><span id="weather-mintemp"></span><span>℃</span>
+                    </div>
+                    <div class="weather-pm">
+                        <span>PM2.5</span>
+                        <span id="weather-pm"></span>
+                    </div>
+                    <div class="weather-centerbox1">
+                        <div class="weather-centerboxitem">
+                            <div><span id="weather-humidity"></span></div>
+                            <div><span>湿度</span></div>
+                        </div>
+                        <div class="weather-centerboxitem">
+                            <div><span id="weather-air"></span></div>
+                            <div class="weather-hightext"><span>空气</span><span id="weather-airname"></span></div>
+                        </div>
+                        <div class="weather-centerboxitem">
+                            <div><span id="weather-wind_power"></span><span>级</span></div>
+                            <div><span>风速</span></div>
+                        </div>
+                        <div class="weather-centerboxitem">
+                            <div><span id="weather-pressure"></span></div>
+                            <div><span>气压</span></div>
+                        </div>
+                        <div class="weather-borderitem first">
+                        </div>
+                        <div class="weather-borderitem second">
+                        </div>
+                        <div class="weather-borderitem third">
+                        </div>
+                    </div>
+                </div>              
+                <div class="weather-centerbox2">
+                </div>
+            </div>
+        </div>
+        <div class="right-bottom">
+            <div class="allnav" id="ceshi2"></div>
+        </div>
+    </div>
+
+    <div class="centre">
+        <div class="top">
+            <div class="left-top">
+                <div class="pie" id="ceshi"></div>
+            </div>
+            <div class="part">
+                <div class="map-height" id="mainmap"></div>
+            </div>
+
+        </div>
+        <div class="bottom">
+            <div class="center-bottom">
+                <div class="echart wenzi">
+                    <div class="gun">
+                        <span>城市</span>
+                        <span>风向</span>
+                        <span>天气状况</span>
+                    </div>
+                    <div id="FontScroll" class="myscroll">
+                        <ul id="myList"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="left-bottom">
+                <section>
+                    <div><img src="images/1.jpg" alt="" /></div>
+                    <div><img src="images/2.jpg" alt="" /></div>
+                    <div><img src="images/3.jpg" alt="" /></div>
+                    <div><img src="images/4.jpg" alt="" /></div>
+                    <div><img src="images/5.jpg" alt="" /></div>
+                    <div><img src="images/6.jpg" alt="" /></div>
+                    <div><img src="images/1.jpg" alt="" /></div>
+                    <div><img src="images/2.jpg" alt="" /></div>
+                    <div><img src="images/3.jpg" alt="" /></div>
+                    <div><img src="images/4.jpg" alt="" /></div>
+                    <div><img src="images/5.jpg" alt="" /></div>
+                    <div><img src="images/6.jpg" alt="" /></div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/echarts.min.js"></script>
+    <script src="./js/china.js"></script>
+    <script src="./js/echart.js"></script>
+    <script src="./js/fontscroll.js"></script>
+    <script src="./js/map.js"></script>
+
+    <script src="./js/weather.js"></script>
+</body>
+</html>
