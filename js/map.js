@@ -1,6 +1,6 @@
 
 $(function () {
-    var apiKey='8142fa7d87384bd1988ec82d471bb6bc';
+    var apiKey='2eeb3674ea0d4fdc91b9f1581ba53192';
     lefttop_map();
     function lefttop_map() {
         var myMap = echarts.init(document.getElementById('mainmap'));
@@ -58,7 +58,7 @@ $(function () {
             });
             function getW(id) {
                 return axios({
-                    url: `https://devapi.qweather.com/v7/weather/now?key=${apiKey}&location=${id}`,
+                    url: `https://api.qweather.com/v7/weather/now?key=${apiKey}&location=${id}`,
                     method: 'get'
                 }).then(res => {
                     return res.data.now.temp;
