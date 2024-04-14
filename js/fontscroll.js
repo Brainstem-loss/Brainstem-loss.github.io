@@ -1,4 +1,4 @@
-var apiKey='1913a911182e4a21b074ac7b7be72cd9';
+var aKey='8142fa7d87384bd1988ec82d471bb6bc';
 (function($) {
     $.fn.myScroll = function(options) {
         var defaults = {
@@ -70,12 +70,12 @@ async function fetchWeatherData(data) {
     for (let item of data) {
         try {
             const res = await axios({
-                url: `https://geoapi.qweather.com/v2/city/lookup?key=${apiKey}&location=${item.name}`,
+                url: `https://geoapi.qweather.com/v2/city/lookup?key=${aKey}&location=${item.name}`,
                 method: 'get'
             });
             const id = res.data.location[0].id;
             const res1 = await axios({
-                url: `https://devapi.qweather.com/v7/weather/now?key=${apiKey}&location=${id}`,
+                url: `https://devapi.qweather.com/v7/weather/now?key=${aKey}&location=${id}`,
                 method: 'get'
             });
             const wind = res1.data.now.windDir;
