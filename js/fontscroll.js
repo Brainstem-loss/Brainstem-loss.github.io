@@ -54,16 +54,17 @@ var apiKey='1913a911182e4a21b074ac7b7be72cd9';
 })(jQuery);
 
 const data = [
-    { name: '广东', value: '%', extra: ['0'] },
-    { name: '江苏', value: '%', extra: ['0'] },
-    { name: '山东', value: '%', extra: ['0'] },
-    { name: '浙江', value: '%', extra: ['0'] },
-    { name: '河南', value: '%', extra: ['0'] },
-    { name: '四川', value: '%', extra: ['0'] },
-    { name: '湖北', value: '%', extra: ['0'] },
-    { name: '湖南', value: '%', extra: ['0'] },
-    { name: '河北', value: '%', extra: ['0'] },
+    { name: '庆阳', value: '%', extra: ['0'] },
+    { name: '西安', value: '%', extra: ['0'] },
+    { name: '北京', value: '%', extra: ['0'] },
+    { name: '重庆', value: '%', extra: ['0'] },
+    { name: '成都', value: '%', extra: ['0'] },
+    { name: '昆明', value: '%', extra: ['0'] },
+    { name: '三亚', value: '%', extra: ['0'] },
+    { name: '厦门', value: '%', extra: ['0'] },
+    { name: '青岛', value: '%', extra: ['0'] },
     { name: '上海', value: '%', extra: ['0'] },
+    { name: '杭州', value: '%', extra: ['0'] },
 ];
 async function fetchWeatherData(data) {
     for (let item of data) {
