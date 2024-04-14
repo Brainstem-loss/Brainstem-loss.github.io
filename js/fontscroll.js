@@ -1,4 +1,4 @@
-var aKey='8142fa7d87384bd1988ec82d471bb6bc';
+var aKey='2eeb3674ea0d4fdc91b9f1581ba53192';
 (function($) {
     $.fn.myScroll = function(options) {
         var defaults = {
@@ -75,7 +75,7 @@ async function fetchWeatherData(data) {
             });
             const id = res.data.location[0].id;
             const res1 = await axios({
-                url: `https://devapi.qweather.com/v7/weather/now?key=${aKey}&location=${id}`,
+                url: `https://api.qweather.com/v7/weather/now?key=${aKey}&location=${id}`,
                 method: 'get'
             });
             const wind = res1.data.now.windDir;
