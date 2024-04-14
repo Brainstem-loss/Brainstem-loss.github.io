@@ -1,5 +1,5 @@
 $(function () {
-    var apiKey='8142fa7d87384bd1988ec82d471bb6bc';
+    var apiKey='2eeb3674ea0d4fdc91b9f1581ba53192';
     ceshi2();
 
     function ceshi2() {
@@ -8,7 +8,7 @@ $(function () {
         let city = input.value;
         function getW(id) {
             axios({
-                url: `https://devapi.qweather.com/v7/weather/24h?key=${apiKey}&location=${id}`,
+                url: `https://api.qweather.com/v7/weather/24h?key=${apiKey}&location=${id}`,
                 method: 'get'
             }).then(res => {
                 console.log(res)
