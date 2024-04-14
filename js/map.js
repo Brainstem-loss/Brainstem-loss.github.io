@@ -200,7 +200,7 @@ $(function () {
                         emphasis: {
                             show: true,
                             textStyle: {
-                                fontSize: 10,
+                                fontSize: 20,
                             }
                         }
                     },
