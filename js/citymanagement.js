@@ -1,4 +1,4 @@
-var apiKey = '1913a911182e4a21b074ac7b7be72cd9'; // 替换为你的和风天气API密钥
+var apiKey = '8142fa7d87384bd1988ec82d471bb6bc'; // 替换为你的和风天气API密钥
 $(document).ready(function () {
 
   cityID = {};
