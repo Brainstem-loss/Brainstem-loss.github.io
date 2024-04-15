@@ -15,7 +15,7 @@ $(document).ready(function () {
       $.each(cityID, function (key, value) {
                     var city_id = value;
                     var city_name=key;
-                    var apiUrl = `https://api.qweather.com/v7/weather/3d?location=${city_id}&key=${apiKey}`;
+                    var apiUrl = `https://devapi.qweather.com/v7/weather/3d?location=${city_id}&key=${apiKey}`;
                     $.get(apiUrl, function (data) {
                         var fxDate  = data["daily"][0]["fxDate"];//日期
                         var precip  = data["daily"][0]["precip"];//降雨量
@@ -122,7 +122,7 @@ $(document).ready(function () {
               cityID[city_name] = newValue;
             // 将数组存储在localStorage中
       localStorage.setItem('cityArray', JSON.stringify(cityID));
-            var apiUrl = `https://api.qweather.com/v7/weather/3d?location=${newValue}&key=${apiKey}`;
+            var apiUrl = `https://devapi.qweather.com/v7/weather/3d?location=${newValue}&key=${apiKey}`;
             $.get(apiUrl, function (data) {
                 var fxDate  = data["daily"][0]["fxDate"];//日期
                 var precip  = data["daily"][0]["precip"];//降雨量
@@ -218,7 +218,7 @@ $(document).on('click', '.weather-gradient', function () {
   var ctname=$(this).parent().parent().attr("id");
   $("#ctname").empty();
   $("#ctname").append(`<div>${ctname}</div><div id="jieshi">七天内天气变化</div>`);
-  var apiUrl = `https://api.qweather.com/v7/weather/7d?location=${ctid}&key=${apiKey}`;
+  var apiUrl = `https://devapi.qweather.com/v7/weather/7d?location=${ctid}&key=${apiKey}`;
   $.get(apiUrl,function(data){
     let date = [];
     let temperature=[];
@@ -235,9 +235,7 @@ for (let i = 0; i < 7; i++) {
     textDay.push(data["daily"][i]["textDay"]);
     iconDay.push(data["daily"][i]["iconDay"]);
     windScaleDay.push(parseFloat(data["daily"][i]["windScaleDay"]));
-}
-
-      // 基于准备好的dom，初始化echarts实例
+}      // 基于准备好的dom，初始化echarts实例
       var myChart = echarts.init(document.getElementById('right-bottom'));
       const colors = ['#5470C6', '#91CC75', '#EE6666'];
       // 指定图表的配置项和数据
@@ -383,32 +381,130 @@ option = {
 myChart.setOption(option);
       
       $('#icon').empty();
-      $.each(iconDay, function(i, file) {
-          // 要获取的文件URL
-          var fileUrl = './icons/'+file+'.svg'; // 替换为你的文件路径
-          $.ajax({
-              url: fileUrl, // 请求的URL
-              type: 'GET', // 请求类型，这里是GET
-              dataType: 'text', // 期望返回的数据类型，这里是纯文本
-              success: function(data) {
-                  // 请求成功时调用的函数
-                  // data参数包含服务器返回的数据
-                  $('#icon').append(data); // 将数据放入div中
-                  var wh='32px';
-                $('svg').each(function(){
-                  $(this).attr('width',wh);
-                   $(this).attr('height',wh);
-                })
-              }
-      });
+      for(var i=0;i<7;i++){
+        $(`.icons${i}`).empty();
+      }
 
+        var fileUrl = './icons/'+iconDay[0]+'.svg';
+        $.ajax({
+          url: fileUrl, // 请求的URL
+          type: 'GET', // 请求类型，这里是GET
+          dataType: 'text', // 期望返回的数据类型，这里是纯文本
+          success: function(data) {
+              // 请求成功时调用的函数
+              // data参数包含服务器返回的数据
+              $(`.icons0`).append(data); // 将数据放入div中
+              var wh='32px';
+            $('svg').each(function(){
+              $(this).attr('width',wh);
+               $(this).attr('height',wh);
+            })
+          }
+  });
+
+  var fileUrl = './icons/'+iconDay[1]+'.svg';
+        $.ajax({
+          url: fileUrl, // 请求的URL
+          type: 'GET', // 请求类型，这里是GET
+          dataType: 'text', // 期望返回的数据类型，这里是纯文本
+          success: function(data) {
+              // 请求成功时调用的函数
+              // data参数包含服务器返回的数据
+              $(`.icons1`).append(data); // 将数据放入div中
+              var wh='32px';
+            $('svg').each(function(){
+              $(this).attr('width',wh);
+               $(this).attr('height',wh);
+            })
+          }
+  });
+  var fileUrl = './icons/'+iconDay[2]+'.svg';
+  $.ajax({
+    url: fileUrl, // 请求的URL
+    type: 'GET', // 请求类型，这里是GET
+    dataType: 'text', // 期望返回的数据类型，这里是纯文本
+    success: function(data) {
+        // 请求成功时调用的函数
+        // data参数包含服务器返回的数据
+        $(`.icons2`).append(data); // 将数据放入div中
+        var wh='32px';
+      $('svg').each(function(){
+        $(this).attr('width',wh);
+         $(this).attr('height',wh);
+      })
+    }
+});
+var fileUrl = './icons/'+iconDay[3]+'.svg';
+$.ajax({
+  url: fileUrl, // 请求的URL
+  type: 'GET', // 请求类型，这里是GET
+  dataType: 'text', // 期望返回的数据类型，这里是纯文本
+  success: function(data) {
+      // 请求成功时调用的函数
+      // data参数包含服务器返回的数据
+      $(`.icons3`).append(data); // 将数据放入div中
+      var wh='32px';
+    $('svg').each(function(){
+      $(this).attr('width',wh);
+       $(this).attr('height',wh);
     })
+  }
+});
+var fileUrl = './icons/'+iconDay[4]+'.svg';
+$.ajax({
+  url: fileUrl, // 请求的URL
+  type: 'GET', // 请求类型，这里是GET
+  dataType: 'text', // 期望返回的数据类型，这里是纯文本
+  success: function(data) {
+      // 请求成功时调用的函数
+      // data参数包含服务器返回的数据
+      $(`.icons4`).append(data); // 将数据放入div中
+      var wh='32px';
+    $('svg').each(function(){
+      $(this).attr('width',wh);
+       $(this).attr('height',wh);
+    })
+  }
+});
+var fileUrl = './icons/'+iconDay[5]+'.svg';
+$.ajax({
+  url: fileUrl, // 请求的URL
+  type: 'GET', // 请求类型，这里是GET
+  dataType: 'text', // 期望返回的数据类型，这里是纯文本
+  success: function(data) {
+      // 请求成功时调用的函数
+      // data参数包含服务器返回的数据
+      $(`.icons5`).append(data); // 将数据放入div中
+      var wh='32px';
+    $('svg').each(function(){
+      $(this).attr('width',wh);
+       $(this).attr('height',wh);
+    })
+  }
+});
+var fileUrl = './icons/'+iconDay[6]+'.svg';
+$.ajax({
+  url: fileUrl, // 请求的URL
+  type: 'GET', // 请求类型，这里是GET
+  dataType: 'text', // 期望返回的数据类型，这里是纯文本
+  success: function(data) {
+      // 请求成功时调用的函数
+      // data参数包含服务器返回的数据
+      $(`.icons6`).append(data); // 将数据放入div中
+      var wh='32px';
+    $('svg').each(function(){
+      $(this).attr('width',wh);
+       $(this).attr('height',wh);
+    })
+  }
+});
     $.each(date,function(i,data){
       $('#icon').append(`<div class="icon_type">${data}</div>`);
     })
-    $.each(textDay,function(i,data){
-      $('#icon').append(`<div class="icon_type">${data}</div>`);
-    })
+
+    for(i=0;i<7;i++){
+      $('#icon').append(`<div class="icon_type">${textDay[i]}</div>`);
+    }
     
   })
   
