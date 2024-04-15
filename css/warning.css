@@ -609,14 +609,15 @@ position: relative;
     height: 50vh;
 }
 #icon{
-    /* transform: scale(2); */
     position: relative;
     font-size: 0.9rem;
-    height: 180px;
+    height: 100px;
     display:grid;
     grid-template-columns: repeat(7,1fr);
 
 }
-.icon_type{
-    height: 16px;
+#icons{
+	width: 100%;
+	display:grid;
+	grid-template-columns: repeat(7,1fr);
 }
