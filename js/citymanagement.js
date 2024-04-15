@@ -15,7 +15,7 @@ $(document).ready(function () {
       $.each(cityID, function (key, value) {
                     var city_id = value;
                     var city_name=key;
-                    var apiUrl = `https://devapi.qweather.com/v7/weather/3d?location=${city_id}&key=${apiKey}`;
+                    var apiUrl = `https://api.qweather.com/v7/weather/3d?location=${city_id}&key=${apiKey}`;
                     $.get(apiUrl, function (data) {
                         var fxDate  = data["daily"][0]["fxDate"];//日期
                         var precip  = data["daily"][0]["precip"];//降雨量
@@ -122,7 +122,7 @@ $(document).ready(function () {
               cityID[city_name] = newValue;
             // 将数组存储在localStorage中
       localStorage.setItem('cityArray', JSON.stringify(cityID));
-            var apiUrl = `https://devapi.qweather.com/v7/weather/3d?location=${newValue}&key=${apiKey}`;
+            var apiUrl = `https://api.qweather.com/v7/weather/3d?location=${newValue}&key=${apiKey}`;
             $.get(apiUrl, function (data) {
                 var fxDate  = data["daily"][0]["fxDate"];//日期
                 var precip  = data["daily"][0]["precip"];//降雨量
@@ -218,7 +218,7 @@ $(document).on('click', '.weather-gradient', function () {
   var ctname=$(this).parent().parent().attr("id");
   $("#ctname").empty();
   $("#ctname").append(`<div>${ctname}</div><div id="jieshi">七天内天气变化</div>`);
-  var apiUrl = `https://devapi.qweather.com/v7/weather/7d?location=${ctid}&key=${apiKey}`;
+  var apiUrl = `https://api.qweather.com/v7/weather/7d?location=${ctid}&key=${apiKey}`;
   $.get(apiUrl,function(data){
     let date = [];
     let temperature=[];
